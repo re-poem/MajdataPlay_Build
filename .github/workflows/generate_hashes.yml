@@ -13,59 +13,46 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Generate hashes.json
         run: |
           OUTPUT_FILE="hashes.json"
           HASHES_JSON="[]"
 
-          # 安全转义特殊字符，用于 JSON 字符串
           json_escape() {
             printf '%s' "$1" | sed 's|\\|\\\\|g; s|"|\\"|g; s|\n|\\n|g; s|\r|\\r|g; s|\t|\\t|g'
           }
 
-          # 查找所有普通文件，排除 .git, .github 和 hashes.json 本身
           find . -type f \
             ! -path './.git/*' \
-            ! -path './.github/*' \
             ! -path "./$OUTPUT_FILE" \
             | sort | while read file; do
 
-            # 计算相对路径（去掉 ./ 前缀）
             rel_path="${file#./}"
             filename="$(basename "$file")"
             sha256=$(sha256sum "$file" | awk '{print $1}')
 
-            # 构建 JSON 对象，安全转义字段
             entry="{
               \"Name\": \"$(json_escape "$filename")\",
               \"SHA256\": \"$sha256\",
               \"RelativePath\": \"$(json_escape "$rel_path")\"
             }"
 
-            # 使用 jq 将对象添加到数组
             HASHES_JSON=$(echo "$HASHES_JSON" | jq --argjson item "$entry" '. += [$item]')
           done
 
-          # 格式化输出到文件
           echo "$HASHES_JSON" | jq '.' > "$OUTPUT_FILE"
           echo "✅ Generated $OUTPUT_FILE with $(jq '. | length' "$OUTPUT_FILE") file(s)."
 
       - name: Display hashes.json
         run: cat hashes.json
 
-      - name: Commit and push if hashes.json changed
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-
-          git add hashes.json
-
-          # 仅当有变更时提交
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: update hashes.json for tag ${{ github.ref_name }}"
-            git push
-            echo "📌 hashes.json updated and pushed."
-          else
-            echo "🟢 hashes.json unchanged, nothing to commit."
-          fi
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: update hashes.json for tag ${{ github.ref_name }}"
+          file_pattern: hashes.json
+          branch: ${{ github.head_ref || github.ref_name }}
