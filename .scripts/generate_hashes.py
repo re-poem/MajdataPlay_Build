@@ -2,7 +2,6 @@
 
 import hashlib
 import json
-import os
 from pathlib import Path
 
 # 输出文件
@@ -32,7 +31,7 @@ def main():
             continue
 
         # 跳过 .git 目录
-        if ".git" in file_path.parts:
+        if ".git" in file_path.parts or ".scripts" in file_path.parts or ".github" in file_path.parts:
             continue
 
         # 跳过自身（hashes.json）
@@ -65,6 +64,7 @@ def main():
         json.dump(hashes, f, indent=2, ensure_ascii=False)
 
     print(f"✅ 已生成 {OUTPUT_FILE}，共 {len(hashes)} 个文件。")
+
 
 if __name__ == "__main__":
     main()

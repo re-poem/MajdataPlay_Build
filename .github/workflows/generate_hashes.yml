@@ -31,7 +31,7 @@ jobs:
           echo "No extra dependencies."
 
       - name: Run generate-hashes.py
-        run: python .github/scripts/generate-hashes.py
+        run: python .scripts/generate-hashes.py
 
       - name: Show hashes.json
         run: cat hashes.json
