@@ -24,14 +24,8 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install dependencies (if needed)
-        run: |
-          # 如果你需要额外库（如 rich），可以 pip install
-          # pip install rich
-          echo "No extra dependencies."
-
       - name: Run generate-hashes.py
-        run: python .scripts/generate_hashes.py
+        run: python .github/scripts/generate_hashes.py
 
       - name: Show hashes.json
         run: cat hashes.json

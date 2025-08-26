@@ -6,12 +6,14 @@ from pathlib import Path
 
 # 输出文件
 OUTPUT_FILE = "hashes.json"
+README_FILE = "README.md"
 
 # 要排除的文件
-EXCLUDE_FILES = {OUTPUT_FILE}
+EXCLUDE_FILES = {OUTPUT_FILE, README_FILE}
 
 # 根目录（仓库根）
 ROOT = Path(".").resolve()
+
 
 def calculate_sha256(file_path):
     """计算文件的 SHA256 哈希值"""
@@ -20,6 +22,7 @@ def calculate_sha256(file_path):
         for chunk in iter(lambda: f.read(4096), b""):
             hash_sha256.update(chunk)
     return hash_sha256.hexdigest()
+
 
 def main():
     hashes = []
@@ -31,11 +34,11 @@ def main():
             continue
 
         # 跳过 .git 目录
-        if ".git" in file_path.parts or ".scripts" in file_path.parts or ".github" in file_path.parts:
+        if ".git" in file_path.parts or ".github" in file_path.parts:
             continue
 
-        # 跳过自身（hashes.json）
-        if file_path.name == OUTPUT_FILE:
+        # 跳过排除的文件
+        if file_path.name in EXCLUDE_FILES:
             continue
 
         # 相对路径（相对于仓库根）
@@ -50,11 +53,15 @@ def main():
             continue
 
         # 添加到列表
-        hashes.append({
-            "Name": name,
-            "SHA256": sha256,
-            "RelativePath": str(rel_path).replace("\\", "/")  # 统一使用 /（兼容 Windows）
-        })
+        hashes.append(
+            {
+                "Name": name,
+                "SHA256": sha256,
+                "RelativePath": str(rel_path).replace(
+                    "\\", "/"
+                ),  # 统一使用 /（兼容 Windows）
+            }
+        )
 
     # 按 RelativePath 排序，确保结果一致
     hashes.sort(key=lambda x: x["RelativePath"])
