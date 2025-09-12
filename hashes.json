@@ -246,7 +246,7 @@
   },
   {
     "Name": "Assembly-CSharp.dll",
-    "SHA256": "f3d54f5d58890c3d2568a5c8aaea3532e500137dabc903a509eca5c6f9067222",
+    "SHA256": "0be31bc185d40822ff8722eb19f916eded64c464dd2cb735ed4398175c008702",
     "RelativePath": "MajdataPlay_Data/Managed/Assembly-CSharp.dll"
   },
   {
@@ -3471,12 +3471,12 @@
   },
   {
     "Name": "boot.config",
-    "SHA256": "a8960a78d9a94f2a7e7c88ca08543a1a664fd3c79021a7952f6b018ae6a42d32",
+    "SHA256": "31e4375a599cd2377972639d39c29c3ce0abd03347b605d91961f394aa3fd36f",
     "RelativePath": "MajdataPlay_Data/boot.config"
   },
   {
     "Name": "globalgamemanagers",
-    "SHA256": "cc70b1f619e767ada602a20a289e1825070a9640b918d560c51b797859ac5f22",
+    "SHA256": "e462744a15c5df0b21c446be84b8ff96dc4d7b2b627eb165ceb7164178d0b38e",
     "RelativePath": "MajdataPlay_Data/globalgamemanagers"
   },
   {
