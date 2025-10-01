@@ -1,0 +1,157 @@
+{
+  "Game": {
+    "TapSpeed": 7.5,
+    "TouchSpeed": 7.5,
+    "SlideFadeInOffset": 0,
+    "BackgroundDim": 0.800000012,
+    "StarRotation": true,
+    "BGInfo": "Combo",
+    "TopInfo": "None",
+    "TrackSkip": true,
+    "FastRetry": true,
+    "Mirror": "Off",
+    "Rotation": 0,
+    "Random": "Disabled",
+    "RecordMode": "Disable"
+  },
+  "Judge": {
+    "AudioOffset": 0,
+    "JudgeOffset": 0,
+    "AnswerOffset": 0,
+    "TouchPanelOffset": 0,
+    "Mode": "Modern"
+  },
+  "Display": {
+    "Language": "zh-CN - Majdata",
+    "Skin": "default",
+    "DisplayCriticalPerfect": false,
+    "DisplayBreakScore": true,
+    "FastLateType": "Disable",
+    "NoteJudgeType": "All",
+    "TouchJudgeType": "All",
+    "SlideJudgeType": "All",
+    "BreakJudgeType": "All",
+    "BreakFastLateType": "Disable",
+    "SlideSortOrder": "Modern",
+    "OuterJudgeDistance": 1,
+    "InnerJudgeDistance": 1,
+    "DisplayHoldHeadJudgeResult": false,
+    "TapScale": 1,
+    "HoldScale": 1,
+    "TouchScale": 1,
+    "SlideScale": 1,
+    "TouchFeedback": "Outer_Only",
+    "Resolution": "1080x1920",
+    "MainScreenPosition": 1,
+    "RenderQuality": "Low",
+    "Topmost": false,
+    "FPSLimit": 120,
+    "VSync": true
+  },
+  "Audio": {
+    "Samplerate": 44100,
+    "AsioDeviceIndex": 0,
+    "WasapiExclusive": true,
+    "Volume": {
+      "Global": 0.300000012,
+      "Answer": 0.800000012,
+      "BGM": 1,
+      "Track": 1,
+      "Tap": 0.300000012,
+      "Slide": 0.300000012,
+      "Break": 0.300000012,
+      "Touch": 0.300000012,
+      "Voice": 1
+    },
+    "Backend": "Wasapi"
+  },
+  "Debug": {
+    "DisplaySensor": false,
+    "DisplayFPS": true,
+    "FullScreen": true,
+    "MenuOptionIterationSpeed": 45,
+    "DisplayOffset": 0,
+    "NoteAppearRate": 0.264999986,
+    "OffsetUnit": "Second",
+    "HideCursorInGame": true,
+    "NoteFolding": true,
+    "DJAutoPolicy": "Strict",
+    "MaxQueuedFrames": 2,
+    "TapPoolCapacity": 96,
+    "HoldPoolCapacity": 48,
+    "TouchPoolCapacity": 64,
+    "TouchHoldPoolCapacity": 16,
+    "EachLinePoolCapacity": 64
+  },
+  "Online": {
+    "Enable": false,
+    "ApiEndpoints": [
+      {
+        "Name": "Majnet",
+        "Url": "https://majdata.net/api3/api",
+        "Username": "YourUsername",
+        "Password": "YourPassword"
+      },
+      {
+        "Name": "Contest",
+        "Url": "https://majdata.net/api1/api",
+        "Username": null,
+        "Password": null
+      }
+    ]
+  },
+  "IO": {
+    "Manufacturer": null,
+    "InputDevice": {
+      "Player": 1,
+      "ButtonRing": {
+        "Type": null,
+        "Debounce": false,
+        "PollingRateMs": 0,
+        "DebounceThresholdMs": 0,
+        "HidOptions": {
+          "DeviceName": null,
+          "ProductId": null,
+          "VendorId": null,
+          "Exclusice": false,
+          "OpenPriority": "VeryHigh"
+        }
+      },
+      "TouchPanel": {
+        "Debounce": false,
+        "Sensitivities": {
+          "A": 0,
+          "B": 0,
+          "C": 0,
+          "D": 0,
+          "E": 0
+        },
+        "PollingRateMs": 0,
+        "DebounceThresholdMs": 0,
+        "TouchSimulationRadius": 0.5,
+        "SerialPortOptions": {
+          "Port": null,
+          "BaudRate": null
+        }
+      }
+    },
+    "OutputDevice": {
+      "Led": {
+        "Enable": true,
+        "RefreshRateMs": 100,
+        "Throttler": false,
+        "SerialPortOptions": {
+          "Port": null,
+          "BaudRate": null
+        },
+        "HidOptions": {
+          "DeviceName": null,
+          "ProductId": null,
+          "VendorId": null,
+          "Exclusice": false,
+          "OpenPriority": "VeryHigh"
+        }
+      }
+    }
+  }
+}
