@@ -10,6 +10,7 @@ Library: C:\Users\BUCYU\source\repos\MajdataPlay\Temp\BurstOutput\Data\Plugins\x
 --linker-options=PdbAltPath="MajdataPlay_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\BUCYU\source\repos\MajdataPlay\Temp\Burst
+--debug=Full
 --key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=C:\Users\BUCYU\source\repos\MajdataPlay\Library\Burst
 --output=C:\Users\BUCYU\source\repos\MajdataPlay\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
@@ -58,6 +59,7 @@ Library: C:\Users\BUCYU\source\repos\MajdataPlay\Temp\BurstOutput\Data\Plugins\x
 --linker-options=PdbAltPath="MajdataPlay_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Users\BUCYU\source\repos\MajdataPlay\Temp\Burst
+--debug=Full
 --key-folder=C:/Program Files/Unity/Hub/Editor/2022.3.49f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=C:\Users\BUCYU\source\repos\MajdataPlay\Library\Burst
 --output=C:\Users\BUCYU\source\repos\MajdataPlay\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
